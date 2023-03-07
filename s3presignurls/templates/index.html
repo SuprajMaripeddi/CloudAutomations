@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Presigned URLs</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 80%;
+            text-align: center;
+            margin-top: 50px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #d4d4d4;
+        }
+        .url-cell {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Presigned URLs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th style="background-color: #c8d1ff;">S3 Object Key</th>
+                <th style="background-color: #c8d1ff;">Presigned URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj_key, presigned_url in urls %}
+                <tr>
+                    <td style="background-color: #e6ecff;">{{ obj_key }}</td>
+                    <td class="url-cell">{{ presigned_url }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
