@@ -5,7 +5,7 @@ import pyshorteners
 app = Flask(__name__)
 
 s3 = boto3.client('s3')
-bucket_name = 'cf-templates-f9dwik8ihlzx-us-east-1'
+bucket_name = 'put the bucketname'
 objects = s3.list_objects(Bucket=bucket_name)['Contents']
 
 urls = []
